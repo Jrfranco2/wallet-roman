@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useAuth } from "../hooks/useAuth";
 import Layout from "../components/Layout";
+import Body from "../components/Body";
 
 export default function Home() {
   // const { authUser, loading, disconnect } = useAuth();
@@ -13,7 +14,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <div>hola</div>
+      <Body />
     </Layout>
   );
 }

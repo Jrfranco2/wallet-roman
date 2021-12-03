@@ -1,7 +1,7 @@
 import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import Link from "next/link";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -43,17 +43,6 @@ const Register = () => {
 
   return (
     <div className="font-sans">
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
       <div className="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100">
         <div className="relative sm:max-w-sm w-full">
           <div className="card bg-indigo-600 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
