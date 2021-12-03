@@ -1,7 +1,17 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { useAuth } from "../hooks/useAuth";
 
 export default function Home() {
+  const { authUser, loading } = useAuth();
+  const router = useRouter();
+
+  // Listen for changes on loading and authUser, redirect if needed
+  useEffect(() => {
+    if (!loading && !authUser) router.push("/login");
+  }, [authUser, loading, router]);
   return (
     <div className="">
       <Head>
