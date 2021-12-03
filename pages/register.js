@@ -2,6 +2,7 @@ import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { ToastContainer, toast } from "react-toastify";
+import Link from "next/link";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -55,7 +56,7 @@ const Register = () => {
       />
       <div className="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100">
         <div className="relative sm:max-w-sm w-full">
-          <div className="card bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+          <div className="card bg-indigo-600 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
           <div className="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
           <div className="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
             <label className="block mt-3 text-sm text-gray-700 text-center font-semibold">
@@ -125,12 +126,11 @@ const Register = () => {
               <div className="mt-7">
                 <div className="flex justify-center items-center">
                   <label className="mr-2">¿Ya tienes una cuenta?</label>
-                  <a
-                    href="#"
-                    className=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
-                  >
-                    Iniciar sesion
-                  </a>
+                  <Link href="/login">
+                    <a className="text-blue-500 transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105">
+                      Iniciar sesion
+                    </a>
+                  </Link>
                 </div>
               </div>
             </form>
