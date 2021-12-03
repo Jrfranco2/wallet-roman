@@ -37,13 +37,8 @@ export default function useFirebaseAuth() {
     setLoading(true);
   };
 
-  // const signInWithEmailAndPasswordFirebase = (email, password) =>
-  //   signInWithEmailAndPassword(email, password);
-
-  // const createUserWithEmailAndPasswordFirebase = (email, password) =>
-  //   createUserWithEmailAndPassword(email, password);
-
-  // const signOutFirebase = () => signOut().then(clear);
+  const signIn = (email, password) =>
+    signInWithEmailAndPassword(auth, email, password);
 
   const createUser = (email, password) =>
     createUserWithEmailAndPassword(auth, email, password);
@@ -58,6 +53,7 @@ export default function useFirebaseAuth() {
   return {
     authUser,
     loading,
+    signIn,
     createUser,
     disconnect,
   };

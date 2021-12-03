@@ -5,8 +5,10 @@ import { useRouter } from "next/router";
 import { useAuth } from "../hooks/useAuth";
 
 export default function Home() {
-  const { authUser, loading } = useAuth();
+  const { authUser, loading, disconnect } = useAuth();
   const router = useRouter();
+
+  console.log(authUser);
 
   // Listen for changes on loading and authUser, redirect if needed
   useEffect(() => {
@@ -21,6 +23,12 @@ export default function Home() {
       </Head>
 
       <main className="">
+        <button
+          onClick={disconnect}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Sign Out
+        </button>
         <div>hola putitos</div>
       </main>
 
