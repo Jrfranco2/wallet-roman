@@ -1,6 +1,6 @@
 const CrudTable = ({ data }) => {
   return (
-    <section className="antialiased bg-gray-100 text-gray-600 mb-10">
+    <div className="antialiased bg-gray-100 text-gray-600 mb-10">
       <div className="flex flex-col justify-center h-full">
         <div className="w-full mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
           <header className="px-5 py-4 border-b border-gray-100">
@@ -72,7 +72,7 @@ const CrudTable = ({ data }) => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
