@@ -1,6 +1,6 @@
 module.exports = {
   hooks: {
-    "pre-commit": "yarn lint",
+    "pre-commit": "next lint",
     // 'pre-commit': 'ng test',
   },
 };
