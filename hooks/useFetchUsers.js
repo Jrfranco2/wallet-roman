@@ -10,5 +10,6 @@ export const useFetchUsers = () => {
   useEffect(() => {
     getFetchUsers().then((users) => setUsers({ data: users, loading: false }));
   }, []);
+
   return users;
 };
