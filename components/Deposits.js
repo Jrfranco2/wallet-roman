@@ -16,7 +16,7 @@ const Deposits = () => {
         <span className="ml-1">Agregar depósito</span>
       </button>
       {errorDepositos && <strong>Error: {JSON.stringify(error)}</strong>}
-      {loadingDepositos && <span>Collection: Loading...</span>}
+      {loadingDepositos && <span>Loading...</span>}
       {depositos && <CrudTable data={depositos} />}
     </section>
   );
