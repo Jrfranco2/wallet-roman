@@ -9,8 +9,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "**/*.{js,css}": [
+      "yarn lint"
+    ]
   },
   "dependencies": {
     "firebase": "^9.6.0",
