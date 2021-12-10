@@ -1,40 +1,88 @@
-import Link from "next/link";
+import { toast } from "react-toastify";
+import { useForm } from "../../hooks/useForm";
 import { useFamiliesContext } from "../../pages/_app";
 
-const UserRegister = () => {
+const initialForm = {
+  name: "",
+  lastName: "",
+  family: "",
+};
+
+const validateForm = (form) => {
+  let errors = {};
+
+  if (!form.name.trim()) {
+    errors.name = "El campo Nombre es requerido";
+  }
+  if (!form.lastName.trim()) {
+    errors.email = "El campo Apellido es requerido";
+  }
+  if (!form.family.trim()) {
+    errors.subject = "El campo Familia es requerido";
+  }
+
+  return errors;
+};
+
+const UserRegister = ({ closeModal, saveUser }) => {
   const { families } = useFamiliesContext();
+  const { form, handleChange, setForm } = useForm(initialForm);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const errors = validateForm(form);
+    if (Object.keys(errors).length > 0) {
+      for (const key in errors) {
+        toast.warn(errors[key], {
+          hideProgressBar: false,
+          theme: "dark",
+        });
+      }
+    } else {
+      setForm(initialForm);
+      closeModal();
+      saveUser(form).then(toast.success("Usuario registrado con exito"), {
+        theme: "dark",
+      });
+    }
+  };
+
   return (
-    <div className="w-full rounded-3xl px-6 py-4 bg-gray-100 shadow-md">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
+    <div className="w-full rounded-3xl px-6 py-4 bg-gray-400 shadow-md">
+      <form onSubmit={handleSubmit} noValidate>
         <div>
           <input
-            required
             autoComplete="ÑÖcompletes"
+            className="p-4 w-full rounded-xl shadow-lg border-4 focus:border-blue-300 outline-none"
             type="text"
             placeholder="Nombre"
-            className="p-4 w-full rounded-xl shadow-lg border-2 focus:border-blue-300 outline-none"
+            required
+            name="name"
+            value={form.name}
+            onChange={handleChange}
           />
         </div>
         <div className="mt-5">
           <input
-            required
             autoComplete="ÑÖcompletes"
+            className="p-4 w-full rounded-xl shadow-lg border-4 focus:border-blue-300 outline-none"
             type="text"
             placeholder="Apellido"
-            className="p-4 w-full rounded-xl shadow-lg border-2 focus:border-blue-300 outline-none"
+            required
+            name="lastName"
+            value={form.lastName}
+            onChange={handleChange}
           />
         </div>
         <div className="mt-5">
           <select
+            className="w-full p-4 rounded-xl shadow-lg border-4 focus:border-blue-300 outline-none"
             required
-            name="familia"
-            className="w-full p-4 rounded-xl shadow-lg border-2 focus:border-blue-300 outline-none"
+            name="family"
+            value={form.family}
+            onChange={handleChange}
           >
-            <option disabled selected hidden>
+            <option value="seleccione" hidden>
               Selecciona una familia
             </option>
             {families.map((item) => {
@@ -43,7 +91,7 @@ const UserRegister = () => {
                 data: { nombre },
               } = item;
               return (
-                <option key={id} className="w-1/2">
+                <option key={id} value={id}>
                   {nombre}
                 </option>
               );

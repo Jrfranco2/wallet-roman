@@ -1,9 +1,11 @@
 import { AuthUserProvider } from "../hooks/useAuth";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, Flip } from "react-toastify";
 import { createContext, useContext } from "react";
 import { collection, getDocs } from "@firebase/firestore";
 import { firestore } from "../lib/firebase";
+
 import "../styles/tailwind.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const FamilyContext = createContext();
 
@@ -12,6 +14,7 @@ const MyApp = ({ Component, pageProps, families }) => {
     <AuthUserProvider>
       <FamilyContext.Provider value={{ families }}>
         <ToastContainer
+          transition={Flip}
           position="top-right"
           autoClose={3000}
           hideProgressBar
@@ -21,6 +24,7 @@ const MyApp = ({ Component, pageProps, families }) => {
           pauseOnFocusLoss
           draggable
           pauseOnHover
+          limit={4}
         />
         <Component {...pageProps} />
       </FamilyContext.Provider>

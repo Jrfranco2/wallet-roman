@@ -4,8 +4,6 @@ import { useAuth } from "../hooks/useAuth";
 import { toast } from "react-toastify";
 import Link from "next/link";
 
-import "react-toastify/dist/ReactToastify.css";
-
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

@@ -19,28 +19,28 @@ const UsersTable = ({ data }) => {
                         <div className="font-semibold text-left">Apellido</div>
                       </th>
                       <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-left">Familia</div>
+                        <div className="font-semibold text-left">Cantidad</div>
                       </th>
                     </tr>
                   </thead>
                   <tbody className="text-sm divide-y divide-gray-100 h-20 overflow-y-auto">
-                    {data.map((user, index) => {
-                      const { nombre, apellido, familia } = user;
+                    {data.map((user) => {
+                      const { id, name, cantidad, lastName } = user;
                       return (
-                        <tr key={index}>
+                        <tr key={id}>
                           <td className="p-2 whitespace-nowrap">
                             <div className="flex items-center">
                               <div className="font-medium text-gray-800">
-                                {nombre}
+                                {name}
                               </div>
                             </div>
                           </td>
                           <td className="p-2 whitespace-nowrap">
-                            <div className="text-left">{apellido}</div>
+                            <div className="text-left">{lastName}</div>
                           </td>
                           <td className="p-2 whitespace-nowrap">
                             <div className="text-left font-medium text-green-500">
-                              {familia.nombre}
+                              {cantidad}
                             </div>
                           </td>
                         </tr>
