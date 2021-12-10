@@ -6,8 +6,10 @@ import UsersTable from "./tables/UsersTable";
 import UserRegister from "./forms/UserRegister";
 
 const Users = () => {
-  const { data, loading } = useFetchFirestore("usuarios");
+  const { users } = useFetchFirestore("usuarios");
   const [isOpen, openModal, closeModal] = useModal(false);
+  const { data, loading } = users;
+
   return (
     <section>
       {loading && <div>Loading...</div>}

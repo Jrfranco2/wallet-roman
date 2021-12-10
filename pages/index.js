@@ -4,7 +4,7 @@ import { useAuth } from "../hooks/useAuth";
 import Layout from "../components/Layout";
 import Body from "../components/Body";
 
-export default function Home() {
+const Home = () => {
   // const { authUser, loading, disconnect } = useAuth();
   // const router = useRouter();
 
@@ -17,4 +17,6 @@ export default function Home() {
       <Body />
     </Layout>
   );
-}
+};
+
+export default Home;

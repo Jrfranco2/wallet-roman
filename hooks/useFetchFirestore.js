@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { collection, onSnapshot } from "@firebase/firestore";
+import { collection, onSnapshot, getDocs } from "@firebase/firestore";
 import { firestore } from "../lib/firebase";
 
 export const useFetchFirestore = (category) => {
@@ -18,5 +18,6 @@ export const useFetchFirestore = (category) => {
     });
     return unsubscribe;
   }, [category]);
-  return users;
+
+  return { users };
 };
