@@ -2,6 +2,7 @@ import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import Link from "next/link";
+import Image from "next/image";
 
 const LoggedIn = () => {
   const [email, setEmail] = useState("");
@@ -25,11 +26,12 @@ const LoggedIn = () => {
   return (
     <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-        <div>
-          <img
-            className="mx-auto h-12 w-auto"
+        <div className="flex flex-col">
+          <Image
             src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
             alt="Workflow"
+            width="50"
+            height="50"
           />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Sign in to your account

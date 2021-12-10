@@ -19,7 +19,6 @@ const Register = () => {
     if (passwordOne === passwordTwo) {
       createUser(email, passwordOne)
         .then((userCredential) => {
-          console.log("Success. The user is created in Firebase");
           router.push("/login");
         })
         .catch((error) => {
