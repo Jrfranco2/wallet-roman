@@ -14,7 +14,10 @@ const Header = () => {
         />
         <p className="text-white text-2xl">Wallet Roman</p>
       </div>
-      <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mr-3 md:mr-10">
+      <button
+        className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mr-3 md:mr-10"
+        onClick={disconnect}
+      >
         Sign Out
       </button>
     </div>

@@ -1,4 +1,4 @@
-import { useFetchFirestore } from "../hooks/useFetchFirestore";
+import { useFetchUsersFirestore } from "../hooks/useFetchUsersFirestore";
 import { FaPlusCircle } from "react-icons/fa";
 import { useModal } from "../hooks/useModal";
 import Modal from "./common/Modal";
@@ -6,8 +6,9 @@ import UsersTable from "./tables/UsersTable";
 import UserRegister from "./forms/UserRegister";
 
 const Users = () => {
-  const { data, loading } = useFetchFirestore("usuarios");
+  const { users, saveUser } = useFetchUsersFirestore();
   const [isOpen, openModal, closeModal] = useModal(false);
+  const { data, loading } = users;
   return (
     <section>
       {loading && <div>Loading...</div>}
@@ -26,7 +27,7 @@ const Users = () => {
             closeModal={closeModal}
             title={"Registrar Usuario"}
           >
-            <UserRegister />
+            <UserRegister closeModal={closeModal} saveUser={saveUser} />
           </Modal>
           <UsersTable data={data} />
         </div>
